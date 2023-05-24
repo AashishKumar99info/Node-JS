@@ -21,3 +21,9 @@ console.log(array.map((a) => {
         return a
     }
 }))
+
+// Task to show how to user the filter method of arrays in JS.
+// similarly like map filter also returns a new array just by filtering the elements as per the condition provided by us.
+// let remove the empty strings from above array.
+
+console.log(array.filter((item)=> item!==" ")) // output is [ 'apple', 'oranges', 'mango', 'lemon' ].
