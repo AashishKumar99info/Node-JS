@@ -27,3 +27,11 @@ console.log(array.map((a) => {
 // let remove the empty strings from above array.
 
 console.log(array.filter((item)=> item!==" ")) // output is [ 'apple', 'oranges', 'mango', 'lemon' ].
+
+// let and const are the key words use to create block scope variables in 
+
+let a=12 
+a=123
+console.log(a) // this shows that the value of let variable can only be updated with in it's block. 
+
+// Here it is in global scope and output is 123.
