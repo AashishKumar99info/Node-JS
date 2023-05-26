@@ -35,3 +35,17 @@ a=123
 console.log(a) // this shows that the value of let variable can only be updated with in it's block. 
 
 // Here it is in global scope and output is 123.
+
+//Now we will see callbacks in JS.
+
+setTimeout(() => {
+    console.log('Timer is Done!');     // these 3 line are e.g. of Async code beacuse it does't finsed immideately 
+}, 2000);
+
+// and it would even be the Async code even if we make the delay 
+// of 1 miliSecond(try to making super fast) instead of 2000 means it will not finsed immideately and would be Async.
+
+console.log('Hello!')
+console.log('Hi!')          //These two line of code are synchronous and will execute immedeately right away one by one.
+
+// Now we will see the Hello! and Hi befor the Timer is Done    
