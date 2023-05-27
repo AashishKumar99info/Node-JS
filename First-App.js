@@ -10,7 +10,8 @@ const student = {
 
     greet() {
 
-        console.log("Hi, I am " + this.name);
+        // console.log("Hi, I am " + this.name);
+        console.log(`Hi, I am ${this.name}`);       //This is an e.g of templet litrals provided by the ES-6 js.
 
     }
 
