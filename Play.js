@@ -29,6 +29,16 @@ console.log(array.map((a) => {
 
 console.log(array.filter((item)=> item!==" ")) // output is [ 'apple', 'oranges', 'mango', 'lemon' ].
 
+const numbers = [1,2,3,4,5] // See this is the eg of reduce method of array.
+// reduce take two arguments first one is a function that contains the logic for reduction of vlaues of array and the
+// and second a value that will initilaize the first parameter of our call back fundtion here in our case it is the   
+// accumulator and value is 0, we can get product of all elements if change + to * and 0 to 1 ok.
+
+const sum = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+},0)
+console.log(sum)
+
 // let and const are the key words use to create block scope variables in 
 
 let a=12 
