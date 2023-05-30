@@ -24,7 +24,7 @@ console.log(array.map((a) => {
 
 // Task to show how to user the filter method of arrays in JS.
 // similarly like map filter also returns a new array just by filtering the elements as per the condition provided by us.
-// Important means it filter alway returns a sub-set of actaul array.
+// Important means it filter always returns a sub-set of actaul array.
 // let remove the empty strings from above array.
 
 console.log(array.filter((item)=> item!==" ")) // output is [ 'apple', 'oranges', 'mango', 'lemon' ].
@@ -60,3 +60,25 @@ console.log('Hello!')
 console.log('Hi!')          //These two line of code are synchronous and will execute immedeately right away one by one.
 
 // Now we will see the Hello! and Hi befor the Timer is Done    
+
+
+// For understanding callbacks we will see the following code , Here we want to show "The Timer is Done!" just after the 
+// 2 seconds one this come on the console then we want to print "Done" just after 1.5 seconds 
+// (with a dely of 1.5 seconds from the time) so we se the execution flow is like that 
+// line 76,then after 2s line 77,after that line 78 will invocked the fetchData function and execution flow will goto the 
+// defination of fetchData function which expects the value of parameter callback here it is an anonamous function 
+// which is only console log the input parameter defination body of fetchData make a dealy of 1.5 seconds by using
+// settimeout and therefore we have called the callback in the body of settimeout's ananomous function.
+
+const fetchData = callback => {
+    setTimeout(() => {
+      callback('Done')
+    },1500)
+}
+
+setTimeout(() => {
+    console.log('The Timer is Done!')
+    fetchData(text => {
+        console.log(text)
+    })
+}, 2000);
