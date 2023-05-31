@@ -49,9 +49,9 @@ console.log(a) // this shows that the value of let variable can only be updated 
 
 //Now we will see callbacks in JS.
 
-setTimeout(() => {
-    console.log('Timer is Done!');     // these 3 line are e.g. of Async code beacuse it does't finsed immideately 
-}, 2000);
+// setTimeout(() => {
+//     console.log('Timer is Done!');     // these 3 line are e.g. of Async code beacuse it does't finsed immideately 
+// }, 2000);
 
 // and it would even be the Async code even if we make the delay 
 // of 1 miliSecond(try to making super fast) instead of 2000 means it will not finsed immideately and would be Async.
@@ -70,15 +70,38 @@ console.log('Hi!')          //These two line of code are synchronous and will ex
 // which is only console log the input parameter defination body of fetchData make a dealy of 1.5 seconds by using
 // settimeout and therefore we have called the callback in the body of settimeout's ananomous function.
 
-const fetchData = callback => {
-    setTimeout(() => {
-      callback('Done')
-    },1500)
+// const fetchData = callback => {
+//     setTimeout(() => {
+//       callback('Done')
+//     },1500)
+// }
+
+// setTimeout(() => {
+//     console.log('The Timer is Done!')
+//     fetchData(text => {
+//         console.log(text)
+//     })
+// }, 2000);
+
+// Doing above code uisng promises  
+
+const fetchData = () => {
+    const promise = new Promise((resolve,reject) => {
+        setTimeout(() => {
+          resolve('Done')
+        },1500)
+    })
+    return promise;
 }
 
 setTimeout(() => {
     console.log('The Timer is Done!')
-    fetchData(text => {
+    fetchData()
+    .then(text => {
         console.log(text)
+        return fetchData();
+    })
+    .then((text2) => {
+      console.log(text2);
     })
 }, 2000);
