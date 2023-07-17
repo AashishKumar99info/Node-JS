@@ -5,7 +5,38 @@ console.log("Hello World");
 const http = require('http');
 
 function rqListner(req,res) {
-    console.log(req,'Aashish')
+    // console.log(req,'Aashish')
+    // console.log(req.url,req.method,req.headers)
+    const url = req.url;
+    console.log(url);
+    res.setHeader('Content-Type','text/html');
+    if (url==="/home") {
+        res.write('<html>');
+        res.write('<head><title>My Frist Page</title></head>');
+        res.write('<body><h1>Welcome home Response My Node.js Server!</h1></body>');
+        res.write('</html>');
+        return res.end();
+    }
+    else if (url==="/about") {
+        res.write('<html>');
+        res.write('<head><title>My Frist Page</title></head>');
+        res.write('<body><h1>Welcome to About Us page Response My Node.js Server!</h1></body>');
+        res.write('</html>');
+        return res.end();
+    }
+    else if (url==="/node") {
+        res.write('<html>');
+        res.write('<head><title>My Frist Page</title></head>');
+        res.write('<body><h1>Welcome to my Node Js project Response My Node.js Server!</h1></body>');
+        res.write('</html>');
+        return res.end();
+    }
+   
+    res.write('<html>');
+    res.write('<head><title>My Frist Page</title></head>');
+    res.write('<body><h1>Hello From My Node.js Server!</h1></body>');
+    res.write('</html>');
+    return res.end();
 }
 
 const server = http.createServer(rqListner);  
