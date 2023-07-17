@@ -10,7 +10,7 @@ function rqListner(req,res) {
 
 const server = http.createServer(rqListner);  
 
-server.listen(5git000)
+server.listen(5000)
 
 // we can do this alos like this
 
