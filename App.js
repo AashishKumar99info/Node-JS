@@ -41,7 +41,7 @@ function rqListner(req,res) {
         return res.end();
     }
     if (url==="/message" && method==="POST") {
-        fs.writeFileSync('message.txt','hello world');
+        fs.writeFileSync('message.txt','hello world this date is not from frontend form');
         res.statusCode = 302;
         res.setHeader('Location','/');
         return res.end();
