@@ -3,11 +3,13 @@ console.log("Hello World");
 // let's Create a Server in Node Js. To do so see the code below
 
 const http = require('http');
+const fs = require('fs');            // Importing File System Module.
 
 function rqListner(req,res) {
     // console.log(req,'Aashish')
     // console.log(req.url,req.method,req.headers)
     const url = req.url;
+    const method = req.method;
     console.log(url);
     res.setHeader('Content-Type','text/html');
     if (url==="/home") {
@@ -29,6 +31,19 @@ function rqListner(req,res) {
         res.write('<head><title>My Frist Page</title></head>');
         res.write('<body><h1>Welcome to my Node Js project Response My Node.js Server!</h1></body>');
         res.write('</html>');
+        return res.end();
+    }
+    if (url==="/") {
+        res.write('<html>');
+        res.write('<head><title>Enter Message</title></head>');
+        res.write('<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>');
+        res.write('</html>');
+        return res.end();
+    }
+    if (url==="/message" && method==="POST") {
+        fs.writeFileSync('message.txt','hello world');
+        res.statusCode = 302;
+        res.setHeader('Location','/');
         return res.end();
     }
    
